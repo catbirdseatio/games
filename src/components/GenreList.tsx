@@ -9,7 +9,6 @@ import {
   Button,
   Heading,
 } from "@chakra-ui/react";
-import React from "react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/imageUrl";
 
@@ -19,10 +18,9 @@ interface Props {
 }
 
 const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data, isLoading } = useGenres();
-  return isLoading ? (
-    <Spinner />
-  ) : (
+  const { data } = useGenres();
+
+  return (
     <>
       <Heading fontSize="2xl" marginBottom={3}>
         Genres
@@ -54,5 +52,4 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
     </>
   );
 };
-
 export default GenreList;
